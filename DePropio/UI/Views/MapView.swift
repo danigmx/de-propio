@@ -9,9 +9,21 @@ struct MapView: View {
             longitudinalMeters: .defaultLongitudinalMeters
         )
     )
+    let locationManager = CLLocationManager()
 
     var body: some View {
-        Map(initialPosition: cameraPosition)
+        Map(initialPosition: cameraPosition) {
+            UserAnnotation()
+        }
+        .mapControls {
+            MapCompass()
+            MapUserLocationButton()
+            MapScaleView()
+        }
+        .onAppear {
+            locationManager.requestWhenInUseAuthorization()
+        }
+        .mapStyle(.standard(elevation: .flat, pointsOfInterest: .excludingAll))
     }
 }
 
