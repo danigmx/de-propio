@@ -1,10 +1,3 @@
-//
-//  DePropioApp.swift
-//  DePropio
-//
-//  Created by Dani on 11/3/25.
-//
-
 import SwiftUI
 import SwiftData
 
